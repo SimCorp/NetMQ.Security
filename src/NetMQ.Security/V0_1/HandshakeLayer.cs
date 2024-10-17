@@ -107,8 +107,7 @@ namespace NetMQ.Security.V0_1
                 CipherSuite.TLS_RSA_WITH_AES_128_CBC_SHA
             };
 
-#warning This method is not available in .NETStandard 1.6 - planned for 2.0; using X509Chain for now as it has the same functionality in NetFx, where X509Certificate2.Verify() calls the same internal method as X509Chain().Build(c)
-            VerifyCertificate = c => new X509Chain().Build(c); //c.Verify();
+            VerifyCertificate = c => c.Verify();
         }
 
         public SecurityParameters SecurityParameters { get; }
